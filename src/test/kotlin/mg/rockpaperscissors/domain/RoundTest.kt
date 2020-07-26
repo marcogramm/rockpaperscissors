@@ -8,7 +8,7 @@ internal class RoundTest {
 
     @Test
     fun addActionAndResultForPlayer() {
-        var round: Round = Round()
+        val round: Round = Round()
         val player: Player = Player("test", RandomChoiceStrategy())
         val expectedAction = Action.ROCK
         val expectedResult = Result.WIN

@@ -1,5 +1,9 @@
 package mg.rockpaperscissors.game
 
+import mg.rockpaperscissors.domain.Action
+import mg.rockpaperscissors.domain.Player
+import mg.rockpaperscissors.domain.Result
+import mg.rockpaperscissors.domain.strategy.StubbornStrategy
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.DisplayName
@@ -59,9 +63,24 @@ internal class GameImplTest {
 
     }
 
-    @DisplayName("Rounds are correctly calculated")
-    fun calculatedRounds() {
+    @DisplayName("Assert Rounds are correctly calculated")
+    fun roundAreCalculatedCorrectly() {
+// we use the StubbornStrategy to generate Rounds with known results
+        game = GameImplTestHelper.getGame()
 
+        var player1 = Player("1", StubbornStrategy(Action.ROCK))
+        var player2 = Player("1", StubbornStrategy(Action.SCISSORS))
+
+        game.registerPlayer1(player1)
+        game.registerPlayer1(player2)
+
+        game.startGame(1)
+
+        var lastLound = game.getLastRoundPlayed()
+        assertThat(lastLound.actions[player1]).isEqualTo(Action.ROCK)
+        assertThat(lastLound.actions[player2]).isEqualTo(Action.SCISSORS)
+        assertThat(lastLound.results[player1]).isEqualTo(Result.WIN)
+        assertThat(lastLound.results[player2]).isEqualTo(Result.LOSS)
     }
 
     @DisplayName("Rounds played gives all played rounds")

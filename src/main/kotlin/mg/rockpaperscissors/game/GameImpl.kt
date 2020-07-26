@@ -68,6 +68,8 @@ class GameImpl(private val output: GameOutput) : Game {
         output.outputSummaryForPlayers(listOf(player1, player2), roundsPlayed)
     }
 
+    override fun getLastRoundPlayed(): Round = roundsPlayed.last()
+
     override fun getRoundsPlayed(): List<Round> = roundsPlayed
 
     override fun getRegisteredPlayers(): List<Player> = listOf(player1, player2)

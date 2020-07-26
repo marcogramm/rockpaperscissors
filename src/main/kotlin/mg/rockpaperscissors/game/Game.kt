@@ -33,6 +33,12 @@ interface Game {
     fun getRoundsPlayed(): List<Round>
 
     /**
+     * Return the last round played
+     * @return the last Round played
+     */
+    fun getLastRoundPlayed(): Round
+
+    /**
      * returns a List of the currently Registered Players
      * @return The List of all currently registered Players
      */
