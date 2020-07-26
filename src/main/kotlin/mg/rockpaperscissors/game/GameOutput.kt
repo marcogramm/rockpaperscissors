@@ -1,5 +1,6 @@
 package mg.rockpaperscissors.game
 
+import mg.rockpaperscissors.domain.Player
 import mg.rockpaperscissors.domain.Round
 
 interface GameOutput {
@@ -13,5 +14,5 @@ interface GameOutput {
      * Output a summary of the given rounds to a device (e.g. to the Console) depending on the Implementation
      * @param rounds The List of rounds to be summarized
      */
-    fun outputSummary(rounds: List<Round>)
+    fun outputSummaryForPlayers(players: List<Player>, rounds: List<Round>)
 }

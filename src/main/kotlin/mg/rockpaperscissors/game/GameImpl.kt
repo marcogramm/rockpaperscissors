@@ -65,7 +65,7 @@ class GameImpl(private val output: GameOutput) : Game {
     }
 
     private fun outputSummary() {
-        output.outputSummary(roundsPlayed)
+        output.outputSummaryForPlayers(listOf(player1, player2), roundsPlayed)
     }
 
     override fun getRoundsPlayed(): List<Round> = roundsPlayed
