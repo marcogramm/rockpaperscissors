@@ -12,9 +12,12 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 class RockpaperscissorsApplication(private val game: Game) : CommandLineRunner {
     val roundsToPlay: Int = 100
+
     override fun run(vararg args: String?) {
-        val player1: Player = Player("Max", RandomChoiceStrategy())
-        val player2: Player = Player("Petra", StubbornStrategy(Action.ROCK))
+        // register 2 Players to the game and play the game for 100 rounds
+
+        val player1 = Player("Max", RandomChoiceStrategy())
+        val player2 = Player("Petra", StubbornStrategy(Action.ROCK))
 
         game.registerPlayer1(player1)
         game.registerPlayer2(player2)

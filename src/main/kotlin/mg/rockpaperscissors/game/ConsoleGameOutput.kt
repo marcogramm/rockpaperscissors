@@ -28,7 +28,7 @@ class ConsoleGameOutput : GameOutput {
     }
 
     override fun outputSummaryForPlayers(players: List<Player>, rounds: List<Round>) {
-        println("The round is over! Overall results are:")
+        println("The Game is over! Overall results are:")
         players.forEach { outSummaryForPlayer(it, rounds) }
     }
 
