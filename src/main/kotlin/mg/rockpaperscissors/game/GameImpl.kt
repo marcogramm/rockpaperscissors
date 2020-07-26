@@ -5,7 +5,9 @@ import mg.rockpaperscissors.domain.Player
 import mg.rockpaperscissors.domain.Result
 import mg.rockpaperscissors.domain.Result.*
 import mg.rockpaperscissors.domain.Round
+import org.springframework.stereotype.Component
 
+@Component
 class GameImpl(private val output: GameOutput) : Game {
     private val roundsPlayed = mutableListOf<Round>()
     private lateinit var player1: Player
