@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.EnumSource
 internal class StubbornStrategyTest {
     private val maxIterations = 10000;
 
-    @DisplayName("Assert StubbornStrategy always return the same Action")
+    @DisplayName("Assert StubbornStrategy always returns the same Action")
     @ParameterizedTest
     @EnumSource(Action::class)
     fun nextAction(expectedAction: Action) {

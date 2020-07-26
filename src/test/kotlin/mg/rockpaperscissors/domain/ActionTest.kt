@@ -2,6 +2,7 @@ package mg.rockpaperscissors.domain
 
 import mg.rockpaperscissors.domain.Action.*
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.EnumSource
 
@@ -11,6 +12,7 @@ internal class ActionTest {
             Pair(SCISSORS, PAPER),
             Pair(PAPER, ROCK))
 
+    @DisplayName("Assert all Actions beat the correct Actions")
     @ParameterizedTest
     @EnumSource(Action::class)
     fun actionBeatsBeatableAction(action1: Action) {

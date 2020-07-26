@@ -5,7 +5,6 @@ import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
 internal class RoundTest {
-
     @Test
     fun addActionAndResultForPlayer() {
         val round: Round = Round()
