@@ -12,8 +12,10 @@ class GameImplTestHelper {
             return Player("Player1", StubbornStrategy(Action.ROCK))
         }
 
+        fun getGame(): Game = GameImpl(SimpleGameOutputMock())
+
         fun getGameWithPlayers(): Game {
-            val game: Game = GameImpl()
+            val game: Game = GameImpl(SimpleGameOutputMock())
             game.registerPlayer1(getPlayer1())
             game.registerPlayer2(getPlayer2())
             return game

@@ -9,13 +9,13 @@ import org.junit.jupiter.params.provider.ValueSource
 
 
 internal class GameImplTest {
-    lateinit var game: GameImpl
+    lateinit var game: Game
 
 
     @DisplayName("Assert Players are correctly registered to the Game")
     @Test
     fun registerPlayers() {
-        val game: GameImpl = GameImpl()
+        game = GameImplTestHelper.getGame()
         val player1 = GameImplTestHelper.getPlayer1()
         val player2 = GameImplTestHelper.getPlayer2()
         game.registerPlayer1(player1)
@@ -33,7 +33,7 @@ internal class GameImplTest {
     @DisplayName("Assert Exception is thrown on start with less than 2 Players")
     @Test
     fun startGameThrowsExceptionWhenNotEnoughPlayers() {
-        var game: GameImpl = GameImpl()
+        var game = GameImplTestHelper.getGame()
         val player1 = GameImplTestHelper.getPlayer1()
         val player2 = GameImplTestHelper.getPlayer2()
 
@@ -49,7 +49,7 @@ internal class GameImplTest {
             game.startGame(1)
         }
 
-        game = GameImpl()
+        game = GameImplTestHelper.getGame()
         game.registerPlayer2(player2)
 
         // throws when only player2 is registered
@@ -59,9 +59,14 @@ internal class GameImplTest {
 
     }
 
+    @DisplayName("Rounds are correctly calculated")
+    fun calculatedRounds() {
+
+    }
+
     @DisplayName("Rounds played gives all played rounds")
     @ParameterizedTest
-    @ValueSource(ints = [0, 1, 10, 100])
+    @ValueSource(ints = [1, 10, 100])
     fun getRoundsPlayed(roundsToPlay: Int) {
         val game: Game = GameImplTestHelper.getGameWithPlayers()
         game.startGame(roundsToPlay)
