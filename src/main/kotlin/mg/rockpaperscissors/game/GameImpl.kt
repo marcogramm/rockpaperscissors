@@ -41,6 +41,10 @@ class GameImpl(private val output: GameOutput) : Game {
         }
     }
 
+    /*
+    Computes a new Round according to both Players strategies and adds it to the list
+    of played rounds
+     */
     private fun computeNewRound() {
         val player1Action = player1.nextAction()
         val player2Action = player2.nextAction()
