@@ -8,11 +8,27 @@ import mg.rockpaperscissors.domain.Round
  * the RockPaperSc
  */
 interface Game {
+    /**
+     * registers Player1
+     * @param player the Player to be registered
+     */
     fun registerPlayer1(player: Player)
 
+    /**
+     * registers Player2
+     * @param player the Player to be registered
+     */
     fun registerPlayer2(player: Player)
 
-    fun startGame()
+    /**
+     * Starts a game that lasts for the given number of rounds
+     * @param roundsToPlay The number of rounds to play
+     */
+    fun startGame(roundsToPlay: Int)
 
+    /**
+     * Returns all rounds that have been played since the game was started
+     * @return List of Rounds that have been played
+     */
     fun getRoundsPlayed(): List<Round>
 }
