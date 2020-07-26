@@ -32,6 +32,10 @@ class GameImpl(private val output: GameOutput) : Game {
         outputSummary()
     }
 
+    /*
+    Validates wether the starting conditions for the game are met
+    (roundsToPlay > 0) (both players set)
+     */
     private fun validateStartGameConditions(roundsToPlay: Int) {
         if (roundsToPlay <= 0) {
             throw IllegalArgumentException("roundsToPlay should be greater than 0")
@@ -49,13 +53,18 @@ class GameImpl(private val output: GameOutput) : Game {
         val player1Action = player1.nextAction()
         val player2Action = player2.nextAction()
         val round = Round()
+        val player1Result = computeResult(player1Action, player2Action)
+        val player2Result = computeResult(player2Action, player1Action)
 
-        round.addActionAndResultForPlayer(player1, player1Action, computeResult(player1Action, player2Action))
-        round.addActionAndResultForPlayer(player2, player2Action, computeResult(player2Action, player1Action))
+        round.addActionAndResultForPlayer(player1, player1Action, player1Result)
+        round.addActionAndResultForPlayer(player2, player2Action, player2Result)
 
         roundsPlayed.add(round)
     }
 
+    /*
+    Conputes the result between 2 Actions (WIN,LOSS,DRAW) as given by the game rules
+     */
     private fun computeResult(action1: Action, action2: Action): Result {
         return when {
             action1.beats(action2) -> WIN
