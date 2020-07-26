@@ -13,7 +13,5 @@ class StubbornStrategy(private val action: Action) : Strategy {
     /**
      * @see Strategy.nextAction
      */
-    override fun nextAction(): Action {
-        TODO("Not yet implemented")
-    }
+    override fun nextAction(): Action = action
 }
